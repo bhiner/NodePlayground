@@ -1,14 +1,19 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+//* Removed for github
+const uri = 'redacted';
+mongoose.connect(`${uri}sample_restaurants`); //* Using sample data generated from MongoDB Atlas
 
-    res.write('<h1>Hello World!</h1>');
-    res.end();
+app.get('/', (req, res) => {
+    res.send('<h1>Hello World! from Express</h1>');
 });
 
-const port = 3000;
+const restaurants = require('./routes/restaurants');
+app.use('/restaurants', restaurants);
 
-server.listen(port, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
