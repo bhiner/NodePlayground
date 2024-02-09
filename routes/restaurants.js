@@ -5,6 +5,8 @@ const restaurant_controller = require('../controllers/restaurantController');
 
 router.get('/', restaurant_controller.restaurant_list);
 
+router.get('/grade', restaurant_controller.restaurant_list_by_grade);
+
 router.get('/:id', restaurant_controller.restaurant_get_detail);
 
 router.get('/cuisine/:cuisine', restaurant_controller.restaurant_get_restaurants_with_cuisine);

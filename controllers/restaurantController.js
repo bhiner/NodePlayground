@@ -14,6 +14,15 @@ exports.restaurant_list = asyncHandler(async (req, res) => {
     res.json(allRestaurants);
 });
 
+exports.restaurant_list_by_grade = asyncHandler(async (req, res) => {  
+    const allRestaurants = await Restaurant.find({ 'grades.grade': 'A' }, 'name cuisine grades')
+        .limit(50)
+        .sort({name: 1})
+        .exec();
+    
+    res.json(allRestaurants);
+});
+
 exports.restaurant_get_detail = asyncHandler(async (req, res) => {
     const restaurant = await Restaurant.findById(req.params.id, 'name cuisine');
     res.json(restaurant);
