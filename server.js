@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
+app.use(express.json());
+
 //* Removed for github
 const uri = 'redacted';
 mongoose.connect(`${uri}sample_restaurants`); //* Using sample data generated from MongoDB Atlas

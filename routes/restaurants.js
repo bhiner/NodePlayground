@@ -9,4 +9,10 @@ router.get('/:id', restaurant_controller.restaurant_get_detail);
 
 router.get('/cuisine/:cuisine', restaurant_controller.restaurant_get_restaurants_with_cuisine);
 
+router.post('/', restaurant_controller.restaurant_create);
+
+router.put('/:id', restaurant_controller.restaurant_update);
+
+router.delete('/:id', restaurant_controller.restaurant_delete);
+
 module.exports = router;
