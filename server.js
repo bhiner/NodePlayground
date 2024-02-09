@@ -15,6 +15,9 @@ app.get('/', (req, res) => {
 const restaurants = require('./routes/restaurants');
 app.use('/restaurants', restaurants);
 
+const neighborhoods = require('./routes/neighborhoods');
+app.use('/neighborhoods', neighborhoods);
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
